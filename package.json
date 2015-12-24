@@ -1,0 +1,33 @@
+{
+  "name": "carbon-validate",
+  "version": "0.1.0",
+  "description": "Provides Zend-like validators in Node.js",
+  "author": {
+    "name": "Amir Ahmetovic",
+    "email": "chox.nox@gmail.com"
+  },
+  "keywords": [
+    "validate",
+    "validator",
+    "validators",
+    "form",
+    "forms",
+    "zend"
+  ],
+  "licence": "MIT",
+  "homepage": "https://github.com/choxnox/carbon-validate",
+  "main": "./index.js",
+  "bugs": {
+    "url": "https://github.com/choxnox/carbon-validate/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/choxnox/carbon-validate.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "lodash": "^3.10.1"
+  }
+}
