@@ -55,8 +55,31 @@ form.addElements([
 ```
 
 ## Validators
-#### StringTrim
-Trims the beginning and the end of a string.
+#### Between
+Checks whether the input value is between two integer values.
+
+**Options**
+* `inclusive` [`Boolean`] - Defines whether `min` and `max` values represent minimal and maximal values allowed, respectively  
+* `min` [`Integer`] - Minimum value
+* `max` [`Integer`] - Maximum value
+* `messages`
+ * `not_between` - message which is returned if the input value isn't between `min` and `max` values
+
+#### Callback
+
+#### DbNoRecordExists
+
+#### DbRecordExists
+
+#### EmailAddress
+
+#### Identical
+
+#### NotEmpty
+
+#### StringLength
+
+#### Url
 
 #### StripTags
 Strips HTML tags from the input. You can specify which tags or attributes you'd like to leave (if any).
