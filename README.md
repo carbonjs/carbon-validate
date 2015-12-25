@@ -12,6 +12,11 @@ npm install carbon-validate [--save]
 ## Usage
 The `carbon-validate` module packs some of the most used validators which share the same interface. Each validator provides public access to the function `isValid` which does the actual validation check and then calls the callback function letting you know whether input data was successfully validated or not. Some validators have options so that you can customize it to your needs.
 
+The function `isValid` has the following prototype `Validate.prototype.isValid = function(value, context, callback)` and it is common to all validators. It has 3 parameters:
+* `value` - Input value that is being passed for the validation.
+* `context` - Context in which input value exists (used by `carbon-form` when needed).
+* `callback` - The callback function which is called after the validation check has been completed.
+
 #### Stand-alone
 ```js
 var Validate = require("carbon-validate");
@@ -53,6 +58,8 @@ form.addElements([
     });
 ]);
 ```
+
+This way when the form is rendered to the user it will automatically display error messages for each element whose validators haven't passed the validation check.
 
 ## Validators
 #### Between
