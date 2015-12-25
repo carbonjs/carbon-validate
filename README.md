@@ -1,7 +1,7 @@
 # carbon-validate
 The `carbon-validate` module provides Zend-like set of commonly used data validators. This means you can check your data with  a set of validators after you've received user's input or before you insert data into your database. You can use it as a stand-alone module or most commonly with `carbon-form` module which validates form data automatically for you.
 
-If you've ever worked with any `Zend_Validate` validators from the Zend Framework you will be familiar with it's sintax and if you haven't then scroll down to the "Usage" section and you'll be up-and-running in no time.
+If you've ever worked with any `Zend_Validate` validator from the Zend Framework you will be familiar with it's sintax and if you haven't then scroll down to the "Usage" section and you'll be up-and-running in no time.
 
 
 ## Installation
