@@ -56,18 +56,30 @@ form.addElements([
 
 ## Validators
 #### Between
-Checks whether the input value is between two integer values.
+Checks if the input value is between two integer values.
 
 **Options**
-* `inclusive` [`Boolean`] - Defines whether `min` and `max` values represent minimal and maximal values allowed, respectively  
-* `min` [`Integer`] - Minimum value
-* `max` [`Integer`] - Maximum value
+* `inclusive` [`Boolean`] - Defines whether `min` and `max` values represent minimal and maximal values allowed, respectively.
+* `min` [`Integer`] - Minimum value.
+* `max` [`Integer`] - Maximum value.
 * `messages`
- * `not_between` - message which is returned if the input value isn't between `min` and `max` values
+ * `not_between` - Message which is returned if the input value isn't between `min` and `max` values.
 
 #### Callback
+If you don't want to make your own validator but you still need to do some custom validation check then this validator is for you.
+
+**Options**
+* `callback` [`Function`] - A function that receives two arguments: the value and validator options and which returns either `true` or `false` depending whether you've successfully validated input data.
 
 #### DbNoRecordExists
+Checks if the value already exists in the database. This means that the validation check will fail if there is already a matching record in the database. Typical example is when you want to check if username is already taken or if email address is already registered in the database.
+
+**Options**
+* `adapter` [`String`] - Name of the database adapter to be used (currently only `mongoose` is supported).
+* `collection` [`String`] - Name of the collection/table in the database which possibly contains the value.
+* `field` [`String`] - Name of the field/column in the collection/table which possibly contains the value.
+* `messages`
+ * `record_found` - Messages which is returned if the input value already exists in the database.
 
 #### DbRecordExists
 
@@ -80,13 +92,6 @@ Checks whether the input value is between two integer values.
 #### StringLength
 
 #### Url
-
-#### StripTags
-Strips HTML tags from the input. You can specify which tags or attributes you'd like to leave (if any).
-
-**Options**
-* `allowedTags` [`Array`] - Tags from the input that you want to keep in the output.
-* `allowedAttributes` [`Array`] - Attributes of HTML tags from the input that you want to keep in the output.
 
 ## Who is using it
 The `carbon-validate` module is one of many that is running behind our web application: [Timelinity](https://www.timelinity.com)
