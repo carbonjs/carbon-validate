@@ -82,16 +82,53 @@ Checks if the value already exists in the database. This means that the validati
  * `record_found` - Messages which is returned if the input value already exists in the database.
 
 #### DbRecordExists
+Verifies that the value is in the database. This means that the validation check will fail if there is no matching record in the database. Typical example is when you want to check if product's category exists at all before you insert product in the database.
+
+**Options**
+* `adapter` [`String`] - Name of the database adapter to be used (currently only `mongoose` is supported).
+* `collection` [`String`] - Name of the collection/table in the database which possibly contains the value.
+* `field` [`String`] - Name of the field/column in the collection/table which possibly contains the value.
+* `messages`
+ * `record_not_found` - Messages which is returned if the input value is not found in the database.
 
 #### EmailAddress
+Checks if the value is valid email address.
+
+**Options**
+* `messages`
+ * `invalid_value` - Messages which is returned if the input value is not valid email address.
 
 #### Identical
+Checks if the value equals some other form element in the same form. Typical example is when you need to verify fields such as "new password" and "repeat new password" contain the same value.
+
+**Options**
+* `token` [`String`] - Name of the other element in the form.
+* `messages`
+ * `not_same` - Messages which is returned if the input value is not the same as the input value from the token element.
 
 #### NotEmpty
+Checks if the value is not empty. This validator can be used in cases where you have required elements in the form.
+
+**Options**
+* `messages`
+ * `is_empty` - Messages which is returned if the input value is empty.
 
 #### StringLength
+Checks if the length of the string value fits `min` and/or `max` criteria defined in the validator options.
+
+**Options**
+* `min` [`Integer`] - Minimum string length.
+* `max` [`Integer`] - Maximum string length.
+* `messages`
+ * `too_short` - Messages which is returned if the input value is shorter than the `min` value.
+ * `too_long` - Messages which is returned if the input value is longer than the `max` value.
 
 #### Url
+Checks if the value is valid URL.
+
+**Options**
+* `messages`
+ * `invalid_url` - Messages which is returned if the input value is not valid URL.
 
 ## Who is using it
 The `carbon-validate` module is one of many that is running behind our web application: [Timelinity](https://www.timelinity.com)
