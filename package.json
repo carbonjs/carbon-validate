@@ -1,6 +1,6 @@
 {
   "name": "carbon-validate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Provides Zend-like validators in Node.js",
   "author": {
     "name": "Amir Ahmetovic",
