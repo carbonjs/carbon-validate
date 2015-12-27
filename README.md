@@ -78,7 +78,7 @@ If you don't want to make your own validator but you still need to do some custo
 **Options**
 * `callback` [`Function`] - A function that receives two arguments: the value and validator options and which returns either `true` or `false` depending whether you've successfully validated input data.
 
-#### DbNoRecordExists <a id="nodbrecordexists-validator"></a>
+#### DbNoRecordExists <a id="dbnorecordexists-validator"></a>
 Checks if the value already exists in the database. This means that the validation check will fail if there is already a matching record in the database. Typical example is when you want to check if username is already taken or if email address is already registered in the database.
 
 **Options**
