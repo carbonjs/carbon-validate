@@ -1,6 +1,6 @@
 {
   "name": "carbon-validate",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Data validators for the CarbonJS Framework or to be used standalone",
   "homepage": "https://github.com/carbonjs/carbon-validate",
   "author": {
