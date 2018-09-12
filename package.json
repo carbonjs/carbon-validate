@@ -1,6 +1,6 @@
 {
   "name": "carbon-validate",
-  "version": "1.0.4",
+  "version": "1.0.8",
   "description": "Data validators for the CarbonJS Framework or to be used standalone",
   "homepage": "https://github.com/carbonjs/carbon-validate",
   "author": {
@@ -30,13 +30,22 @@
   "dependencies": {
     "bytes": "^2.5.0",
     "gm": "^1.23.0",
-    "lodash": "latest",
-    "mmmagic": "^0.4.5",
-    "request": "^2.81.0"
+    "lodash.every": "^4.6.0",
+    "lodash.foreach": "^4.5.0",
+    "lodash.isarray": "^4.0.0",
+    "lodash.isboolean": "^3.0.3",
+    "lodash.isfunction": "^3.0.9",
+    "lodash.isnull": "^3.0.0",
+    "lodash.isnumber": "^3.0.3",
+    "lodash.isobject": "^3.0.2",
+    "lodash.isstring": "^4.0.1",
+    "lodash.isundefined": "^3.0.1",
+    "mmmagic": "^0.4.6",
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "chai": "^4.1.0",
-    "mocha": "^3.4.2",
+    "mocha": "^3.5.3",
     "mocha-each": "^1.1.0"
   }
 }
