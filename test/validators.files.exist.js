@@ -26,7 +26,11 @@ describe("Validators", function() {
                 Exist.isValid(filePath, {}, function(err, value) {
                     expect(err).to.equal(null);
                     expect(value).to.equal(filePath);
-                    done();
+
+                    var promise = Exist.isValid(filePath, {});
+
+                    expect(promise).to.be.an.instanceof(Promise);
+                    promise.should.eventually.equal(filePath).notify(done);
                 });
             });
 
@@ -40,7 +44,11 @@ describe("Validators", function() {
                 Exist.isValid(filePath, {}, function(err, value) {
                     expect(err).to.equal(null);
                     expect(value).to.equal(filePath);
-                    done();
+
+                    var promise = Exist.isValid(filePath, {});
+
+                    expect(promise).to.be.an.instanceof(Promise);
+                    promise.should.eventually.equal(filePath).notify(done);
                 });
             });
 
@@ -54,7 +62,11 @@ describe("Validators", function() {
                 Exist.isValid(filePath, {}, function(err, value) {
                     expect(err).to.equal(messages.not_exist);
                     expect(value).to.equal(filePath);
-                    done();
+
+                    var promise = Exist.isValid(filePath, {});
+
+                    expect(promise).to.be.an.instanceof(Promise);
+                    promise.should.be.rejectedWith(messages.not_exist).notify(done);
                 });
             });
 
@@ -68,7 +80,11 @@ describe("Validators", function() {
                 Exist.isValid(filePath, {}, function(err, value) {
                     expect(err).to.equal(messages.not_exist);
                     expect(value).to.equal(filePath);
-                    done();
+
+                    var promise = Exist.isValid(filePath, {});
+
+                    expect(promise).to.be.an.instanceof(Promise);
+                    promise.should.be.rejectedWith(messages.not_exist).notify(done);
                 });
             });
         });

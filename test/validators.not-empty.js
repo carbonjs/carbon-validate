@@ -32,7 +32,11 @@ describe("Validators", function() {
                 NotEmpty.isValid(val, {}, function(err, value) {
                     expect(err).to.equal(null);
                     expect(value).to.equal(val);
-                    done();
+
+                    var promise = NotEmpty.isValid(val, {});
+
+                    expect(promise).to.be.an.instanceof(Promise);
+                    promise.should.eventually.equal(val).notify(done);
                 });
             });
         });
@@ -52,7 +56,11 @@ describe("Validators", function() {
 
                 NotEmpty.isValid(val, {}, function(err, value) {
                     expect(err).to.equal("is_empty");
-                    done();
+
+                    var promise = NotEmpty.isValid(val, {});
+
+                    expect(promise).to.be.an.instanceof(Promise);
+                    promise.should.be.rejectedWith("is_empty").notify(done);
                 });
             });
         });

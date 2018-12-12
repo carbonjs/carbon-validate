@@ -23,7 +23,11 @@ describe("Validators", function() {
 
             StringLength.isValid(null, {}, function(err, value) {
                 expect(err).to.equal(messages.invalid);
-                done();
+
+                var promise = StringLength.isValid(null, {});
+
+                expect(promise).to.be.an.instanceof(Promise);
+                promise.should.be.rejectedWith(messages.invalid).notify(done);
             });
         });
 
@@ -37,7 +41,11 @@ describe("Validators", function() {
             StringLength.isValid(str, {}, function(err, value) {
                 expect(err).to.equal(null);
                 expect(value).to.equal(str);
-                done();
+
+                var promise = StringLength.isValid(str, {});
+
+                expect(promise).to.be.an.instanceof(Promise);
+                promise.should.eventually.equal(str).notify(done);
             });
         });
 
@@ -49,7 +57,11 @@ describe("Validators", function() {
 
             StringLength.isValid("ab", {}, function(err, value) {
                 expect(err).to.equal(messages.too_short);
-                done();
+
+                var promise = StringLength.isValid("ab", {});
+
+                expect(promise).to.be.an.instanceof(Promise);
+                promise.should.be.rejectedWith(messages.too_short).notify(done);
             });
         });
 
@@ -61,7 +73,11 @@ describe("Validators", function() {
 
             StringLength.isValid("abcdef", {}, function(err, value) {
                 expect(err).to.equal(messages.too_long);
-                done();
+
+                var promise = StringLength.isValid("abcdef", {});
+
+                expect(promise).to.be.an.instanceof(Promise);
+                promise.should.be.rejectedWith(messages.too_long).notify(done);
             });
         });
     });

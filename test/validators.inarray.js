@@ -23,7 +23,11 @@ describe("Validators", function() {
 
             InArray.isValid(null, {}, function(err, value) {
                 expect(err).to.equal(messages.invalid_haystack);
-                done();
+
+                var promise = InArray.isValid(null, {});
+
+                expect(promise).to.be.an.instanceof(Promise);
+                promise.should.be.rejectedWith(messages.invalid_haystack).notify(done);
             });
         });
 
@@ -38,7 +42,11 @@ describe("Validators", function() {
             InArray.isValid(val, {}, function(err, value) {
                 expect(err).to.equal(null);
                 expect(value).to.equal(val);
-                done();
+
+                var promise = InArray.isValid(val, {});
+
+                expect(promise).to.be.an.instanceof(Promise);
+                promise.should.eventually.equal(val).notify(done);
             });
         });
 
@@ -54,7 +62,11 @@ describe("Validators", function() {
             InArray.isValid(val, {}, function(err, value) {
                 expect(err).to.equal(null);
                 expect(value).to.equal(val);
-                done();
+
+                var promise = InArray.isValid(val, {});
+
+                expect(promise).to.be.an.instanceof(Promise);
+                promise.should.eventually.equal(val).notify(done);
             });
         });
 
@@ -69,7 +81,11 @@ describe("Validators", function() {
             InArray.isValid(val, {}, function(err, value) {
                 expect(err).to.equal(null);
                 expect(value).to.equal(val);
-                done();
+
+                var promise = InArray.isValid(val, {});
+
+                expect(promise).to.be.an.instanceof(Promise);
+                promise.should.eventually.equal(val).notify(done);
             });
         });
 
@@ -85,7 +101,11 @@ describe("Validators", function() {
             InArray.isValid(val, {}, function(err, value) {
                 expect(err).to.equal(null);
                 expect(value).to.equal(val);
-                done();
+
+                var promise = InArray.isValid(val, {});
+
+                expect(promise).to.be.an.instanceof(Promise);
+                promise.should.eventually.equal(val).notify(done);
             });
         });
 
@@ -99,7 +119,11 @@ describe("Validators", function() {
 
             InArray.isValid(val, {}, function(err, value) {
                 expect(err).to.equal(messages.not_found);
-                done();
+
+                var promise = InArray.isValid(val, {});
+
+                expect(promise).to.be.an.instanceof(Promise);
+                promise.should.be.rejectedWith(messages.not_found).notify(done);
             });
         });
 
@@ -113,7 +137,11 @@ describe("Validators", function() {
 
             InArray.isValid(val, {}, function(err, value) {
                 expect(err).to.equal(messages.not_found);
-                done();
+
+                var promise = InArray.isValid(val, {});
+
+                expect(promise).to.be.an.instanceof(Promise);
+                promise.should.be.rejectedWith(messages.not_found).notify(done);
             });
         });
     });

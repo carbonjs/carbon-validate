@@ -28,7 +28,11 @@ describe("Validators", function() {
                 Size.isValid(filePath, {}, function(err, value) {
                     expect(err).to.equal(null);
                     expect(value).to.equal(filePath);
-                    done();
+
+                    var promise = Size.isValid(filePath, {});
+
+                    expect(promise).to.be.an.instanceof(Promise);
+                    promise.should.eventually.equal(filePath).notify(done);
                 });
             });
 
@@ -42,7 +46,11 @@ describe("Validators", function() {
                 Size.isValid(filePath, {}, function(err, value) {
                     expect(err).to.equal(null);
                     expect(value).to.equal(filePath);
-                    done();
+
+                    var promise = Size.isValid(filePath, {});
+
+                    expect(promise).to.be.an.instanceof(Promise);
+                    promise.should.eventually.equal(filePath).notify(done);
                 });
             });
 
@@ -55,7 +63,11 @@ describe("Validators", function() {
 
                 Size.isValid(filePath, {}, function(err, value) {
                     expect(err).to.equal(messages.invalid_file);
-                    done();
+
+                    var promise = Size.isValid(filePath, {});
+
+                    expect(promise).to.be.an.instanceof(Promise);
+                    promise.should.be.rejectedWith(messages.invalid_file).notify(done);
                 });
             });
 
@@ -70,7 +82,11 @@ describe("Validators", function() {
                 Size.isValid(filePath, {}, function(err, value) {
                     expect(err).to.equal(messages.too_big);
                     expect(value).to.equal(filePath);
-                    done();
+
+                    var promise = Size.isValid(filePath, {});
+
+                    expect(promise).to.be.an.instanceof(Promise);
+                    promise.should.be.rejectedWith(messages.too_big).notify(done);
                 });
             });
 
@@ -85,7 +101,11 @@ describe("Validators", function() {
                 Size.isValid(filePath, {}, function(err, value) {
                     expect(err).to.equal(messages.too_big);
                     expect(value).to.equal(filePath);
-                    done();
+
+                    var promise = Size.isValid(filePath, {});
+
+                    expect(promise).to.be.an.instanceof(Promise);
+                    promise.should.be.rejectedWith(messages.too_big).notify(done);
                 });
             });
 
@@ -100,7 +120,11 @@ describe("Validators", function() {
                 Size.isValid(filePath, {}, function(err, value) {
                     expect(err).to.equal(messages.too_small);
                     expect(value).to.equal(filePath);
-                    done();
+
+                    var promise = Size.isValid(filePath, {});
+
+                    expect(promise).to.be.an.instanceof(Promise);
+                    promise.should.be.rejectedWith(messages.too_small).notify(done);
                 });
             });
 
@@ -115,7 +139,11 @@ describe("Validators", function() {
                 Size.isValid(filePath, {}, function(err, value) {
                     expect(err).to.equal(messages.too_small);
                     expect(value).to.equal(filePath);
-                    done();
+
+                    var promise = Size.isValid(filePath, {});
+
+                    expect(promise).to.be.an.instanceof(Promise);
+                    promise.should.be.rejectedWith(messages.too_small).notify(done);
                 });
             });
         });

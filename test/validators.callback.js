@@ -35,7 +35,11 @@ describe("Validators", function() {
             Callback.isValid(str, {}, function(err, value) {
                 expect(err).to.equal(null);
                 expect(value).to.equal(str);
-                done();
+
+                var promise = Callback.isValid(str, {});
+
+                expect(promise).to.be.an.instanceof(Promise);
+                promise.should.eventually.equal(str).notify(done);
             });
         });
 
@@ -52,7 +56,11 @@ describe("Validators", function() {
             Callback.isValid(str, {}, function(err, value) {
                 expect(err).to.equal(null);
                 expect(value).to.equal(str);
-                done();
+
+                var promise = Callback.isValid(str, {});
+
+                expect(promise).to.be.an.instanceof(Promise);
+                promise.should.eventually.equal(str).notify(done);
             });
         });
 
@@ -68,7 +76,11 @@ describe("Validators", function() {
 
             Callback.isValid(str, {}, function(err, value) {
                 expect(err).to.equal("invalid_value");
-                done();
+
+                var promise = Callback.isValid(str, {});
+
+                expect(promise).to.be.an.instanceof(Promise);
+                promise.should.be.rejectedWith("invalid_value").notify(done);
             });
         });
 
@@ -84,7 +96,11 @@ describe("Validators", function() {
 
             Callback.isValid(str, {}, function(err, value) {
                 expect(err).to.equal("invalid_value");
-                done();
+
+                var promise = Callback.isValid(str, {});
+
+                expect(promise).to.be.an.instanceof(Promise);
+                promise.should.be.rejectedWith("invalid_value").notify(done);
             });
         });
 
@@ -95,7 +111,11 @@ describe("Validators", function() {
 
             Callback.isValid("abc", {}, function(err, value) {
                 expect(err).to.equal("invalid_callback");
-                done();
+
+                var promise = Callback.isValid("abc", {});
+
+                expect(promise).to.be.an.instanceof(Promise);
+                promise.should.be.rejectedWith("invalid_callback").notify(done);
             });
         });
     });

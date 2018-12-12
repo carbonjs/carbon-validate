@@ -24,7 +24,11 @@ describe("Validators", function() {
             EmailAddress.isValid(address, {}, function(err, value) {
                 expect(err).to.equal(null);
                 expect(value).to.equal(address);
-                done();
+
+                var promise = EmailAddress.isValid(address, {});
+
+                expect(promise).to.be.an.instanceof(Promise);
+                promise.should.eventually.equal(address).notify(done);
             });
         });
 
@@ -37,7 +41,11 @@ describe("Validators", function() {
 
             EmailAddress.isValid(address, {}, function(err, value) {
                 expect(err).to.equal("invalid_value");
-                done();
+
+                var promise = EmailAddress.isValid(address, {});
+
+                expect(promise).to.be.an.instanceof(Promise);
+                promise.should.be.rejectedWith("invalid_value").notify(done);
             });
         });
     });
