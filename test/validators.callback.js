@@ -43,6 +43,27 @@ describe("Validators", function() {
             });
         });
 
+        it("should allow callback to be a sync function which uses Promise and async/await", function(done) {
+            var Callback = new Validate.Callback({
+                callback: async function(value, context, options) {
+                    return value === "abc";
+                },
+                messages: messages
+            });
+
+            var str = "abc";
+
+            Callback.isValid(str, {}, function(err, value) {
+                expect(err).to.equal(null);
+                expect(value).to.equal(str);
+
+                var promise = Callback.isValid(str, {});
+
+                expect(promise).to.be.an.instanceof(Promise);
+                promise.should.eventually.equal(str).notify(done);
+            });
+        });
+
         it("should allow callback to be an async function", function(done) {
             var Callback = new Validate.Callback({
                 callback: function(value, context, options, callback) {

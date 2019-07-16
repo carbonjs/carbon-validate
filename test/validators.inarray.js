@@ -70,6 +70,45 @@ describe("Validators", function() {
             });
         });
 
+        it("should pass when value is an array and every element is found in the array haystack; case-sensitive", function(done) {
+            var InArray = new Validate.InArray({
+                haystack: ["Abc", "Def", "Ghi"],
+                messages: messages
+            });
+
+            var val = ["Abc", "Ghi"];
+
+            InArray.isValid(val, {}, function(err, value) {
+                expect(err).to.equal(null);
+                expect(value).to.equal(val);
+
+                var promise = InArray.isValid(val, {});
+
+                expect(promise).to.be.an.instanceof(Promise);
+                promise.should.eventually.equal(val).notify(done);
+            });
+        });
+
+        it("should pass when value is an array and every element is found in the array haystack; case-insensitive", function(done) {
+            var InArray = new Validate.InArray({
+                haystack: ["Abc", "Def", "Ghi"],
+                caseInsensitive: true,
+                messages: messages
+            });
+
+            var val = ["abc", "ghi"];
+
+            InArray.isValid(val, {}, function(err, value) {
+                expect(err).to.equal(null);
+                expect(value).to.equal(val);
+
+                var promise = InArray.isValid(val, {});
+
+                expect(promise).to.be.an.instanceof(Promise);
+                promise.should.eventually.equal(val).notify(done);
+            });
+        });
+
         it("should pass when value is found in the string haystack; case-sensitive", function(done) {
             var InArray = new Validate.InArray({
                 haystack: "AbcDefGhi",
@@ -116,6 +155,24 @@ describe("Validators", function() {
             });
 
             val = "def";
+
+            InArray.isValid(val, {}, function(err, value) {
+                expect(err).to.equal(messages.not_found);
+
+                var promise = InArray.isValid(val, {});
+
+                expect(promise).to.be.an.instanceof(Promise);
+                promise.should.be.rejectedWith(messages.not_found).notify(done);
+            });
+        });
+
+        it("should return 'not_found' message when value is an array and not every element is found in the array haystack", function(done) {
+            var InArray = new Validate.InArray({
+                haystack: ["Abc", "Def", "Ghi"],
+                messages: messages
+            });
+
+            val = ["abc", "ghi", "jkl"];
 
             InArray.isValid(val, {}, function(err, value) {
                 expect(err).to.equal(messages.not_found);
